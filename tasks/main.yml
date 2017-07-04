@@ -74,10 +74,18 @@
 - name: Copy file to update motd
   copy:
     src: ../files/90-box_info
-    dest: /etc/motd.d/90-box_info
+    dest: /etc/update-motd.d/90-box-info
     owner: root
     group: root
     mode: 0755
+
+- name: Remove some standard motd sections
+  file:
+    path: "/etc/update-mot.d/{{ item }}"
+    state: absent
+  with_items:
+    - "10-help-text"
+    - "91-release-upgrade"
 
 # Cleanup tasks.
 - name: Remove unneeded packages.
