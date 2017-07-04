@@ -62,6 +62,23 @@
 - include: vmware.yml
   when: vmware_check.stdout > 0
 
+
+- name: Prepare and store info about box
+  template:
+    src: ../templates/box.info.j2
+    dest: /etc/box.info
+    owner: root
+    group: root
+    mode: 0444
+
+- name: Copy file to update motd
+  copy:
+    src: ../files/90-box_info
+    dest: /etc/motd.d/90-box_info
+    owner: root
+    group: root
+    mode: 0755
+
 # Cleanup tasks.
 - name: Remove unneeded packages.
   apt: "name={{ item }} state=absent"

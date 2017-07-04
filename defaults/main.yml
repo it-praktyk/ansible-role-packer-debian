@@ -1,1 +1,3 @@
 vmware_install_open_vm_tools: "false"
+packer_box_version: undefined
+packer_box_maintainer: undefined

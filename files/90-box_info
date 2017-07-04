@@ -1,0 +1,9 @@
+#!/bin/sh
+
+out=/etc/box.info
+
+if [ -f "$out" ]; then
+    # Output exists, print it
+    echo
+    cat "$out"
+fi
