@@ -6,8 +6,8 @@ galaxy_info:
   description: Debian/Ubuntu configuration for Packer.
   company: "IT Praktyk Wojciech Sciesinski"
   issue_tracker_url: "https://github.com/it-praktyk/ansible-role-packer-debian"
-  license: "license (MIT)"
-  min_ansible_version: 2.0
+  license: "MIT"
+  min_ansible_version: 2.2
   platforms:
     - name: Debian
       versions:
@@ -23,3 +23,4 @@ galaxy_info:
     - hashicorp
     - vagrant
     - development
+    - packer
