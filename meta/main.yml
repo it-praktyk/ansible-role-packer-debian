@@ -2,11 +2,11 @@
 dependencies: []
 
 galaxy_info:
-  author: geerlingguy
+  author: it-praktyk
   description: Debian/Ubuntu configuration for Packer.
-  company: "Midwestern Mac, LLC"
-  issue_tracker_url: "https://github.com/geerlingguy/ansible-role-packer-debian"
-  license: "license (BSD, MIT)"
+  company: "IT Praktyk Wojciech Sciesinski"
+  issue_tracker_url: "https://github.com/it-praktyk/ansible-role-packer-debian"
+  license: "license (MIT)"
   min_ansible_version: 2.0
   platforms:
     - name: Debian
@@ -19,4 +19,7 @@ galaxy_info:
     - cloud
     - system
     - packaging
+    - packer
+    - hashicorp
+    - vagrant
     - development

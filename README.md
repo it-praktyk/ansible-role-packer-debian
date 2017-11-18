@@ -1,8 +1,10 @@
-# Ansible Role: Packer Debian/Ubuntu Configuration for Vagrant VirtualBox
+# Ansible Role: Packer Debian/Ubuntu Configuration for Vagrant VirtualBox and VMware Workstation
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-packer-debian.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-packer-debian)
+[![Build Status](https://travis-ci.org/it-praktyk/ansible-role-packer-debian.svg?branch=master)](https://travis-ci.org/it-praktyk/ansible-role-packer-debian)
 
 This role configures Debian/Ubuntu (either minimal or full install) in preparation for it to be packaged as part of a .box file for Vagrant/VirtualBox or Vagrant/Vmware_desktop deployment using [Packer](http://www.packer.io/).
+
+The role was initially created by Jeff Geerling aka [geerlingguy](https://github.com/geerlingguy) but due to lack of accepting constructive updates ([PR #17](https://github.com/geerlingguy/ansible-role-packer-debian/pull/17), [PR #18](https://github.com/geerlingguy/ansible-role-packer-debian/pull/18)) I decided to fork it.
 
 ## Requirements
 
@@ -60,7 +62,7 @@ apt -y install ansible
   sudo: yes
   gather_facts: yes
   roles:
-    - geerlingguy.packer-debian
+    - it-praktyk.packer-debian
 ```
 
 You might also want to add another shell provisioner to run cleanup, erasing free space using `dd`, but this is not required (it will just save a little disk space in the Packer-produced .box file).
@@ -92,13 +94,15 @@ None.
 ---
 - hosts: all
   roles:
-    - geerlingguy.packer-debian
+    - it-praktyk.packer-debian
 ```
 
 ## License
 
-MIT / BSD
+MIT
 
-## Author Information
+## Authors Information
 
 This role was created in 2014 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).
+
+Forked at November 17, 2017 by Wojciech Sciesinski
