@@ -1,10 +1,13 @@
 ---
-# TODO: Consider adding "upgrade=full" to also update everything.
 - name: Ensure apt cache is updated.
-  apt: update_cache=yes cache_valid_time=3600
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
 
 - name: Ensure correct kernel headers are installed.
   shell: "apt-get -y install linux-headers-$(uname -r)"
+  args:
+    warn: no
 
 - name: Add configuration to update apt cache on boot.
   copy:
@@ -64,7 +67,9 @@
 
 # Cleanup tasks.
 - name: Remove unneeded packages.
-  apt: "name={{ item }} state=absent"
+  apt:
+    name: "{{ item }}"
+    state: absent
   with_items:
     - ppp
     - pppconfig
@@ -82,9 +87,13 @@
 
 - name: Remove unneeded packages (by regex).
   shell: "apt-get -y remove '.*-dev$'"
+  args:
+    warn: no
 
 - name: Clean up apt.
   command: "{{ item }}"
+  args:
+    warn: no
   with_items:
     - apt-get -y autoremove
     - apt-get -y clean

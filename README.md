@@ -73,16 +73,22 @@ If you'd like to add additional roles, make sure you add them to the `role_paths
 
 Available variables are listed below, along with default values (see defaults/main.yml):
 
-    vmware_install_open_vm_tools: no
+  -  vmware_install_open_vm_tools: no
 
-(VMware only) Using the `vmware_install_open_vm_tools` variable, you can select what kind of integration components will be installed into the VMware box. The default (`no`) installs VMware Tools, and not `open-vm-tools`.
+      (VMware only) Using the `vmware_install_open_vm_tools` variable, you can select what kind of integration components will be installed into the VMware box. The default (`no`) installs VMware Tools, and not `open-vm-tools`.
 
-Read more:
+      Read more:
 
-  - [open-vm-tools](https://sourceforge.net/projects/open-vm-tools/)
-  - [open-vm-tools on GitHub](https://github.com/vmware/open-vm-tools)
-  - [VMware support for Open VM Tools (2073803)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2073803)
-  - [VMware Tools](https://kb.vmware.com/selfservice/search.do?cmd=displayKC&docType=kc&docTypeID=DT_KB_1_1&externalId=340)
+      - [open-vm-tools](https://sourceforge.net/projects/open-vm-tools/)
+      - [open-vm-tools on GitHub](https://github.com/vmware/open-vm-tools)
+      - [VMware support for Open VM Tools (2073803)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2073803)
+      - [VMware Tools](https://kb.vmware.com/selfservice/search.do?cmd=displayKC&docType=kc&docTypeID=DT_KB_1_1&externalId=340)
+
+  - remove_guest_tools_iso_file: yes
+
+      If set to no allows retain VirtualBox Additions or VMware Tools iso file inside created Vagrant box - it allows retry build on error or update kernel and recompile required software based on the sources from these iso files.
+
+
 
 ## Dependencies
 
@@ -96,6 +102,8 @@ None.
   roles:
     - it-praktyk.packer-debian
 ```
+
+## [Changelog](CHANGELOG.MD)
 
 ## License
 

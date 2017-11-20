@@ -64,4 +64,5 @@
     file:
       path: /home/vagrant/linux.iso
       state: absent
+    when: remove_guest_tools_iso_file | bool
   when: not ( vmware_install_open_vm_tools | bool )

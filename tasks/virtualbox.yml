@@ -26,3 +26,4 @@
   file:
     path: "/home/vagrant/VBoxGuestAdditions_{{ virtualbox_version.stdout }}.iso"
     state: absent
+  when: remove_guest_tools_iso_file | bool
